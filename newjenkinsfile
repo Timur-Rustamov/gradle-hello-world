@@ -1,0 +1,12 @@
+node('slave1') {
+  stage('checkout'){
+    checkout scm
+}
+  stage ('build'){
+  sh '/bin/gradle4 build'
+  }
+  stage ('post'){
+  addBadge(icon: <icon>, text: <new badge>) 
+  }
+}
+  
