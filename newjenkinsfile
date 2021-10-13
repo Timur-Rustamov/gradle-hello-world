@@ -1,13 +1,25 @@
 node('slave1') {
-  stage('checkout'){
+result="OK"
+  try {
+    stage('checkout'){
     checkout scm
-}
-  stage ('build'){
-  gradle = tool 'gradle4'
-      			sh "${gradle}/bin/gradle build"
   }
-  stage ('post'){
-  addBadge(icon: "green.gif", text: "new badge") 
+    stage ('build'){
+    gradle = tool 'gradle4'
+    sh "${gradle}/bin/gradle build"
   }
-}
+  }
+  catch (ex) {
+		result="Error"
+	}
+	stage ('post'){
+		if (result == 'OK') {
+   			addBadge(icon: 'completed.gif', text: 'OK')
+  		}
+  		if (result == 'Error') {
+   			addBadge(icon: 'error.gif', text: 'Error')
+  		} 
+      }
+	}
+
   
