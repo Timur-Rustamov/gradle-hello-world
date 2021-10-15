@@ -1,4 +1,7 @@
 pipeline {
+tools {
+gradle 'gradle4'
+  }
   agent {
   label 'worker'
   }
@@ -19,5 +22,5 @@ pipeline {
 addBadge(icon: 'completed.gif', text: 'OK')
   		}
 	}
-
+}
   
