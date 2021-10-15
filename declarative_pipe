@@ -14,7 +14,7 @@ gradle 'gradle4'
     stage ('build'){
     	steps {
     gradle = tool 'gradle4'
-    sh "${gradle}/bin/gradle build"
+    sh "gradle build"
   		}
 		}
 	stage ('post'){
