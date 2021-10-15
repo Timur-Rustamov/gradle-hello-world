@@ -13,7 +13,6 @@ gradle 'gradle4'
   }
     stage ('build'){
     	steps {
-    gradle = tool 'gradle4'
     sh "gradle build"
   		}
 		}
