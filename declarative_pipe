@@ -16,11 +16,11 @@ gradle 'gradle4'
     sh "gradle build"
   		}
 		}
-	stage ('post'){
-	steps {
+		}
+post {
+	success {
 addBadge(icon: 'completed.gif', text: 'OK')
   		}
 	}
-}
 }
   
