@@ -1,0 +1,19 @@
+pipeline {
+  agent {
+  label 'worker'
+  }
+  stages {
+    stage('checkout'){
+    checkout scm
+  }
+    stage ('build'){
+    gradle = tool 'gradle4'
+    sh "${gradle}/bin/gradle build"
+  }
+	stage ('post'){
+   			addBadge(icon: 'completed.gif', text: 'OK')
+  		}
+      }
+	}
+
+  
