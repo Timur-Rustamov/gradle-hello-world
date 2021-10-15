@@ -4,16 +4,20 @@ pipeline {
   }
   stages {
     stage('checkout'){
+    	steps {
     checkout scm
   }
+  }
     stage ('build'){
+    	steps {
     gradle = tool 'gradle4'
     sh "${gradle}/bin/gradle build"
-  }
-	stage ('post'){
-   			addBadge(icon: 'completed.gif', text: 'OK')
   		}
-      }
+		}
+	stage ('post'){
+	steps {
+addBadge(icon: 'completed.gif', text: 'OK')
+  		}
 	}
 
   
