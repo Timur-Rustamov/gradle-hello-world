@@ -23,4 +23,5 @@ addBadge(icon: 'completed.gif', text: 'OK')
   		}
 	}
 }
+}
   
