@@ -6,11 +6,13 @@ result="OK"
   }
     stage ('build'){
     gradle = tool 'gradle4'
-    sh "${gradle}/bin/gradle build"
+    sh "${gradle}/bin/gradle clean build"
   }
     stage ('unit test'){
     gradle = tool 'gradle4'
     sh "${gradle}/bin/gradle test"
+	junit 'build/test-results/junit-platform/*.xml'
+
     }
     stage ('func-test') {
     tests = ["one" : { sh "sh test-data/int-test.sh build/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"},
