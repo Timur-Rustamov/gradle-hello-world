@@ -14,8 +14,8 @@ result="OK"
     }
     stage ('func-test') {
     tests = ["one" : { sh "test-data/int-test.sh build/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"},
-            "two :{ sh "test-data/int-test.sh build/libs/oto-gradle-1.0.jar tsImur 'Hello Tsimur!'"},
-            "three :{ sh "test-data/int-test.sh build/libs/oto-gradle-1.0.jar rustaMov 'Hello Rustamov!'"}]
+            "two" :{ sh "test-data/int-test.sh build/libs/oto-gradle-1.0.jar tsImur 'Hello Tsimur!'"},
+            "three" :{ sh "test-data/int-test.sh build/libs/oto-gradle-1.0.jar rustaMov 'Hello Rustamov!'"}]
     parallel tests
     }
   }
